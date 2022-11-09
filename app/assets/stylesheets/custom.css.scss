@@ -1,2 +1,12 @@
 @import "semantic-ui";
 
+.chatbox {
+    height: 60vh;
+}
+
+#message_box{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+}

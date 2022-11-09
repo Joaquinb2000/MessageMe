@@ -1,0 +1,23 @@
+<h2 class="ui center aligned icon header">
+    <i class="circular blue inverted huge comments outline icon"></i>
+    Say Something
+</h2>
+
+<div class="ui two column grid">
+    <div class="twelve wide column">
+        <div class="ui fluid raised card chatbox">
+            <%= render "text_box"%>
+        </div>
+    </div>
+    <div class="four wide column">
+        <div class="ui fluid raised card chatbox">
+            <div class= "content">
+                <div class= "ui inverted vertical menu">
+                    <%= link_to "Get friends", login_path, class: "item" %>
+                    <%= link_to "Get friends", login_path, class: "item" %>
+                    <%= link_to "Get friends", login_path, class: "item" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

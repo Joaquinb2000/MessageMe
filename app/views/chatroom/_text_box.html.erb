@@ -1,0 +1,20 @@
+<div class="content">
+    <div class="ui feed">
+        <div class="event">
+            <div class="content">
+                You added Elliot Fu to the group <a>Coworkers</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="extra content">
+    <%= form_with url: root_path, method: :get, local: true, class: "ui reply form" do |f|%>
+        <div class="field">
+            <div class="ui flui icon input">
+                <%= f.text_field :message, class: "ui input"%>
+                <i class="bordered inverted orange edit icon"></i>
+            </div>
+        </div>
+    <% end %>
+</div>
+
