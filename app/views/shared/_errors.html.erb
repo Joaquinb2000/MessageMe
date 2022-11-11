@@ -1,0 +1,13 @@
+<% if !obj.nil?  %>
+    <div class="ui error message">
+        <i class="close icon"></i>
+        <div class="header">
+            Please fix the following errors
+        </div>
+        <ul>
+            <% obj.each do |msg| %>
+                <li><%= msg%></li>
+            <% end%>
+        </ul>
+</div>
+<% end %>

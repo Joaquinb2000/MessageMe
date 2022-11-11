@@ -2,11 +2,11 @@
     <div class="ui two column very relaxed stackable grid">
         <div class="column">
             <div class="ui form">
-                <%= form_with url: login_path, method: :post, local: true do |f| %>
+                <%= form_with(scope: :session, url: login_path, method: :post, local: true) do |f| %>
                     <div class="field">
-                        <%= f.label :email %>
+                        <%= f.label :username %>
                         <div class="ui left icon input">
-                            <%= f.text_field :email, placeholder: "Enter your email"%>
+                            <%= f.text_field :username, placeholder: "Enter your email"%>
                             <i class="user icon"></i>
                         </div>
                     </div>
@@ -22,10 +22,12 @@
             </div>
         </div>
         <div class="middle aligned column">
-            <div class="ui big blue button">
-                <i class="signup icon"></i>
-                Sign Up
-            </div>
+             <%= link_to signup_path do %>
+                <div class="ui big blue button">
+                    <i class="signup icon"></i>
+                    Sign up
+                </div>
+            <% end %>
         </div>
     </div>
     <div class="ui vertical divider">

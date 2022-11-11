@@ -7,3 +7,18 @@
 .top{
     margin-top: 30px;
 }
+
+#message-board{
+    height: 45vh;
+    overflow: auto;
+}
+
+.message{
+    margin: 5px 0;
+}
+
+#send-button{
+    margin: 0
+}
+
+
