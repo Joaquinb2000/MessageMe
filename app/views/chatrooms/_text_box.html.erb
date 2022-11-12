@@ -1,6 +1,8 @@
 <div class="content" id="message-board">
     <div class="ui feed" id= "message-display">
-        <%= render @messages %>
+        <% if @has_content %>
+            <%= render @messages %>
+        <% end %>
     </div>
 </div>
 <div class="extra content">

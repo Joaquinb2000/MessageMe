@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
 
   def create
     message = current_user.messages.build(message_body)
+    message.chatroom_id = session[:chatroom_id]
     if message.save
       ActionCable.server.broadcast "chatroom_channel",
                                     mod_message: message_render(message)

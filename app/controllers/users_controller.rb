@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :logged_user, only: [ :new, :create ]
 
+  def index
+  end
+
   def new
     @user = User.new
     @errors = session[:user_error]

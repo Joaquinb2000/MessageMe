@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
     @current_user||= User.find(session[:user_id])
   end
 
+  def user_chatrooms(number= nil)
+    @chatrooms||= number.nil? ? current_user.chatrooms : current_user.chatrooms.order(:updated_at).last(10)
+  end
+
   def logged_in?
     !session[:user_id].nil?
   end
