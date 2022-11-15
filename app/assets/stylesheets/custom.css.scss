@@ -13,12 +13,30 @@
     overflow: auto;
 }
 
+#chatroom-board{
+    overflow: auto;
+}
+
 .message{
-    margin: 5px 0;
+    overflow-wrap: anywhere;
+}
+
+.msg{
+    color: grey
+}
+
+.event{
+    margin-bottom: 10px;
+}
+
+.content.user.message{
+    text-align: right;
 }
 
 #send-button{
     margin: 0
 }
 
-
+.ui.card.chatpreview{
+    width: 100%;
+}

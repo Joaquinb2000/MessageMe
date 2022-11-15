@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_chatrooms(number= nil)
-    @chatrooms||= number.nil? ? current_user.chatrooms : current_user.chatrooms.order(:updated_at).last(10)
+    @chatrooms||= number.nil? ? current_user.chatrooms : current_user.chatrooms.limit(number).order(updated_at: :desc)
   end
 
   def logged_in?

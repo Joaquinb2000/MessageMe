@@ -9,4 +9,5 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     $('#message-display').append data.mod_message
     $('#message_body').val("")
     scroll_bottom()
+    chatroom_last_message(data.mod_message, data.chatroom_id)
 

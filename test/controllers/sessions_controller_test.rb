@@ -1,8 +1,10 @@
+require 'test_helper.rb'
+
 class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test "user logout" do
     @user = User.create(username: "joaco", password: "password")
-    post login_path, params: {session: {username: @user.username, password: "password" }}
+    login (@user)
     delete logout_path
     assert_redirected_to root_path
   end

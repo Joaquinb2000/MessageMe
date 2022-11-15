@@ -3,16 +3,16 @@
     Say Something
 </h2>
 
-<div class="ui two column grid">
+<div class="ui two column grid black stackable">
     <div class="twelve wide column">
         <div class="ui fluid raised card chatbox">
             <%= render "text_box"%>
         </div>
     </div>
-    <div class="four wide column">
-        <div class="ui fluid raised card chatbox">
-            <div class= "ui content">
-                <div class= "ui inverted fluid vertical menu">
+    <div class="four wide column inverted">
+        <div class="ui fluid raised black card chatbox">
+            <div class= "ui content" id="chatroom-board">
+                <div class= "ui inverted fluid vertical chatrooms menu">
                 <%= render @chatrooms %>
                 </div>
             </div>

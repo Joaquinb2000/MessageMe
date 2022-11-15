@@ -1,0 +1,9 @@
+<h1>All open chats</h1>
+
+<div class="ui container inverted">
+    <%= will_paginate @chatrooms %>
+</div>
+
+<div class="ui inverted fluid vertical chatrooms menu">
+    <%= render @chatrooms %>
+</div>

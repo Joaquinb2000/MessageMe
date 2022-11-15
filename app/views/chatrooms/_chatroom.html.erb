@@ -1,1 +1,17 @@
-<%= link_to chatroom.id, "/chatroom/#{chatroom.id}"%>
+<%= link_to("/chatroom/#{chatroom.id}", class: "ui card chatpreview") do%>
+    <div class="content chatroom_name">
+        <div class="center aligned ui tiny header">
+             Chatroom: <%= chatroom.id %>
+        </div>
+    </div>
+    <div class="content msg" id="cr_<%=chatroom.id%>">
+        <% if current_page?(chatrooms_path)%>
+            <%="#{@last_messages.peek[:username]}:  #{@last_messages.next[:body]}"%>
+        <%else%>
+            <%= truncate("#{@last_messages.peek[:username]}:  #{@last_messages.next[:body]}", length:30) %>
+        <%end%>
+        <% if chatroom.id != session[:chatroom_id]  %>
+            <div class= "ui label right floated">3</div>
+        <% end %>
+    </div>
+<% end %>

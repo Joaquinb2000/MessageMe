@@ -1,5 +1,11 @@
 <div class="event" >
-    <div class="content message">
-            <strong><em><%= message.user.username %>:</em></strong>   <%= message.body %>
+    <div class="content">
+        <div class="ui grid">
+            <div class="fourteen wide column raised <%= "right floated" if current_user == message.user%>">
+                <div class = "ui <%= current_user == message.user ? "blue right floated" : "compact" %> message">
+                    <strong><em><%= message.user.username %>:</em></strong> <%= message.body %>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

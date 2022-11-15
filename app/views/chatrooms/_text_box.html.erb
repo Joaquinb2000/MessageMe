@@ -10,10 +10,9 @@
         <div class="field">
             <div class="ui fluid icon input">
                 <%= f.text_field :body, class: "ui input"%>
-                <%= f.button class: 'ui tiny button primary' do %>
+                <%= f.button class: 'ui tiny button primary', id:"send-message" do %>
                     <i class="edit icon" id="send-button"></i>
                 <% end %>
-
             </div>
         </div>
     <% end %>
