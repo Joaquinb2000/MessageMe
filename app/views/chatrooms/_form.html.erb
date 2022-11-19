@@ -1,0 +1,18 @@
+<%= render "shared/errors", obj: @errors %>
+<div class="ui placeholder segment">
+    <%= form_with(model: @chatroom, local: true, class: "ui form") do |f|%>
+        <div class="field">
+            <%= f.label :name %>
+            <div class="ui left icon input">
+                <%= f.text_field :name, placeholder: "Name the chatroom"%>
+            </div>
+        </div>
+        <div class="field">
+            <%= f.label :user %>
+            <div class="ui left icon input">
+                <%= f.text_field :user, value: @friend || "" %>
+            </div>
+        </div>
+        <%= f.submit @chatroom.new_record? ? "Open chatroom" : "Edit chatroom", class:"ui blue button"%>
+    <% end %>
+</div>

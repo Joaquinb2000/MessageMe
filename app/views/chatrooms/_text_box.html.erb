@@ -1,3 +1,6 @@
+<%if current_chatroom %>
+    <%=link_to "Chatroom", "/chatroom_members/#{current_chatroom}", class: "ui sub header content center aligned"%>
+<% end %>
 <div class="content" id="message-board">
     <div class="ui feed" id= "message-display">
         <% if @has_content %>

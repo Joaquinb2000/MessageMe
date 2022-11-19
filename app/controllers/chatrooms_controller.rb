@@ -16,20 +16,41 @@ class ChatroomsController < ApplicationController
   end
 
   def new
+    user_id = params[:friend]
+    @friend = User.find_by(id: user_id)
+    @chatroom = Chatroom.new
   end
 
   def create
+    user = User.find_by(username: username_param)
+    @chatroom = Chatroom.new(chatroom_params)
+    if user && user != current_user && @chatroom.save()
+      @chatroom.users.push(user, current_user)
+      @chatroom.messages.create(body: "Opened the chatroom!", user_id: current_user.id)
+      flash[:info]= "Succesfully created the chatroom!"
+      redirect_to "/chatroom/#{@chatroom.id}"
+    else
+      flash.now[:warning] = user.nil? ? "Username does not exist" : "User is a member of the chatroom already"
+      render "new"
+    end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   def destroy
   end
+
+
 
   private
 
   def get_chatroom_messages(chatrooms, chatroom_id )
     chatrooms.find(chatroom_id).messages.includes(:user).custom_display
   end
-
 
 # I created this to avoid having to make n+1 queries when checking the message's
 # username. Is it better this way? or just getting the message model and rendering it
@@ -42,4 +63,13 @@ class ChatroomsController < ApplicationController
       {username: usernames[last_message.user_id], body: last_message.body}
     end.to_enum
   end
+
+  def chatroom_params
+    params.require(:chatroom).permit(:name)
+  end
+
+  def username_param
+    params.require(:chatroom).permit(:user)[:user]
+  end
+
 end

@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   validates :password_digest, length: { minimum: 8 }
 
-  has_many :chatroom_members
+  has_many :chatroom_members, dependent: :destroy
   has_many :chatrooms, through: :chatroom_members
   has_many :messages
   has_secure_password

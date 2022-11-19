@@ -1,0 +1,20 @@
+<h2 class="ui center aligned icon header">
+  <i class="circular blue users icon"></i>
+  <%=@user.username%>
+</h2>
+
+
+<div class="ui grid center aligned" id="user">
+    <div class="ui vertical menu padded">
+        <div class="item center-aligned">
+            <% if current_user != @user %>
+                <%= link_to "Add friend", "/chatrooms/new?friend=#{@user.id}", class: "secondary ui button", style: "margin: 0"%>
+            <% else %>
+                <%= link_to "Delete account", user_path(@user), method: :delete,class: "red ui button", data: {confirm: "Your account information will dissapear. Are you sure?"}%>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="ui container center aligned">
+</div>
