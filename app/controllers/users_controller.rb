@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:info] = "Account succesfully created, Welcome!"
-      redirect_to root_path
+      redirect_to chatrooms_path
     else
       session[:user_error] = @user.errors.full_messages
       redirect_to signup_path

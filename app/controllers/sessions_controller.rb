@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(login_info[:password])
       session[:user_id] = user.id
       flash[:info] = "Successfully logged in, welcome #{user.username}"
-      redirect_to root_path
+      redirect_to chatrooms_path
     else
       flash.now[:warning] = "Incorrect username or password"
       render 'new'
