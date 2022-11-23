@@ -1,11 +1,11 @@
 databases:
-  - name: message-me
+  - name: MessageMe
     databaseName: MessageMe
     user: MessageMe
 
 services:
   - type: web
-    name: message-me
+    name: MessageMe
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
