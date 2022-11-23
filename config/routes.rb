@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "chatroom/(:id)", to: 'chatrooms#show'
 
   root to: "sessions#new"
+  get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
