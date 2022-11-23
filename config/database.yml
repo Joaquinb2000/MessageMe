@@ -82,4 +82,4 @@ production:
   <<: *default
   database: MessageMe_production
   username: MessageMe
-  password: <%= ENV['MESSAGEME_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_URL'] %>
