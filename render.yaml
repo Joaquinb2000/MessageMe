@@ -1,7 +1,7 @@
 databases:
   - name: MessageMe
-    databaseName: MessageMe
-    user: MessageMe
+    databaseName: messageme
+    user: messageme_user
 
 services:
   - type: web
