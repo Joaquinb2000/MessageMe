@@ -6,7 +6,7 @@ substitute_message_with = function(new_message, id){
 }
 
 // Updates the timestamp
-new_timestamp = (timestamp) =>{
+new_timestamp = function(timestamp){
     old = $(".tiny.message")
     old.first().text(timestamp)
 }
