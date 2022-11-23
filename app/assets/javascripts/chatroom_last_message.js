@@ -1,19 +1,19 @@
 // Updates the message
-substitute_message_with = (new_message, id) => {
+substitute_message_with = function (new_message, id) {
     message_preview = $(`#cr_${id}`)
     message_preview.contents()[0].remove();
     message_preview.prepend(new_message)
 }
 
 // Updates the timestamp
-new_timestamp = (timestamp) =>{
+new_timestamp = function (timestamp){
     old = $(".tiny.msg")
     old.first().text(timestamp)
 }
 
 // Gets the message and timestamp from the _message.html.erb view,
 // and substitutes it in the chatrooms #show and #index views
-chatroom_last_message = (message, id) => {
+chatroom_last_message = function(message, id) {
     display = message.match(/(?<=em>).*/)[0];
     timestamp = message.match(/(?<=msg">)\n.+/)[0];
 
