@@ -90,10 +90,9 @@ Rails.application.configure do
   end
 
   #Redis config
+  config.action_cable.allowed_request_origins = ["localhost:3000", "https://messageme.onrender.com" ]
 
-  config.cache_store = :redis_cache_store, {
-    url: ENV['REDIS_URL']
-  }
+  config.cache_store = :redis_cache_store, {  url: ENV['REDIS_URL']}
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
