@@ -18,7 +18,7 @@ chatroom_last_message = function(message, id) {
     timestamp = message.match(/(?<=msg">)\n.+/)[0];
 
     chatrooms = $(".chatrooms.menu");
-    chatroom = $(`a[href="/chatroom/${id}"]`);
+    chatroom = $('a[href="/chatroom/'.concat(id, '"]'));
     chatroom_copy = null;
 
     if(chatroom.length === 0){
