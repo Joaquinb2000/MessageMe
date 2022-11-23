@@ -24,8 +24,8 @@ chatroom_last_message = function(message, id) {
     if(chatroom.length === 0){
         chatroom = chatrooms.children().first()
         chatroom_copy = chatroom.clone()
-        chatroom_copy.find(".chatroom_name").text(`Chatroom ${id}`)
-        chatroom_copy.children().last().attr('id', `cr_${id}`)
+        chatroom_copy.find(".chatroom_name").text("Chatroom ".concat(id))
+        chatroom_copy.children().last().attr('id', "cr_".concat(id))
     }
 
     chatroom.remove()
