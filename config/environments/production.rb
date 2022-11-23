@@ -89,6 +89,11 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  #Redis config
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV['REDIS_URL']
+  }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
