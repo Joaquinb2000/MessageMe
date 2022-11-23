@@ -1,6 +1,6 @@
 // Updates the message
 substitute_message_with = function (new_message, id) {
-    message_preview = $(`#cr_${id}`)
+    message_preview = $("#cr_".concat(id))
     message_preview.contents()[0].remove();
     message_preview.prepend(new_message)
 }
