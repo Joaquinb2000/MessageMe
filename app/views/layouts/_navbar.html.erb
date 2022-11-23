@@ -1,7 +1,8 @@
 <div class="ui inverted large menu">
     <div class="ui container">
-        <%= link_to "Chatroom", root_path, class: "item" %>
+        <%= link_to "Chatroom", "/chatroom", class: "item" %>
         <%= link_to "Messages", chatrooms_path, class: "item"%>
+        <%= link_to "Create new chatroom", new_chatroom_path, class:"item"%>
         <div class="right menu">
             <% if !logged_in? %>
                 <%= link_to "Log in", login_path, class: "item"%>

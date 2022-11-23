@@ -1,0 +1,13 @@
+<% members.each do |member|%>
+  <div class="item">
+    <div class="right floated content">
+      <%= link_to "Remove", chatroom_member_path(member),method: :delete, data: {confirm: "User will be removed from chat"}, class:"ui red button" %>
+    </div>
+    <div class="bottom aligned content">
+      <h3 class="sub header">
+        <%= link_to member.username, user_path(member) %>
+      </h3>
+    </div>
+  </div>
+<% end %>
+

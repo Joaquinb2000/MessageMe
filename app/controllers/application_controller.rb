@@ -5,17 +5,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_chatroom
-    @current_chatroom = session[:chatroom_id]
+    @current_chatroom||= Chatroom.find_by(id: session[:chatroom_id])
   end
 
   def user_chatrooms(number= nil)
-    @chatrooms||= number.nil?  ? current_user.chatrooms : current_user.chatrooms.limit(number).order(updated_at: :desc)
-  end
-
-  def add_to_chatroom
-    user = session[:add_to_chatroom]
-    session[:add_to_chatroom]= nil
-    user
+    @chatrooms||= number.nil?  ? current_user.chatrooms : current_user.chatrooms.limit(number).recent
   end
 
   def logged_in?
@@ -32,7 +26,14 @@ class ApplicationController < ActionController::Base
   def logged_user
     if logged_in?
       flash[:warning] = "You need to signout to perform that action"
-      redirect_to root_path
+      redirect_to "/chatroom"
+    end
+  end
+
+  def is_chatroom_member
+    if !(session[:chatroom_id].nil?) && user_chatrooms.find_by(id: session[:chatroom_id]).nil?
+      flash[:warning] = "You are not a member of that chatroom"
+      redirect_to chatrooms_path
     end
   end
 

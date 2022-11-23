@@ -32,7 +32,8 @@ class ChatroomChannelTest < ApplicationSystemTestCase
     chatrooms= 10 if chatrooms > 10
 
     visit chatrooms_url
-    page.assert_selector "a.ui.inverted.card", {count: chatrooms}
+
+    assert_selector "a.ui.chatpreview", {count: chatrooms}
 
 
     using_session("user_2") do
@@ -41,12 +42,12 @@ class ChatroomChannelTest < ApplicationSystemTestCase
       fill_in('Password', with: "password")
       click_on "Login"
 
-      visit current_path.concat("chatroom/#{chatroom.id}")
+      visit current_path.concat("/#{chatroom.id}")
 
       assert_difference 'Chatroom.first.messages.count', 1 do
         find_by_id("message_body").fill_in(with: "Kono ude daite omae wo nidoto hanashi wa shinai")
         find(:id, 'send-message').click
-        sleep(2)
+        sleep 3 # Waits three seconds to allow data to be saved in the DB
       end
     end
     assert_text ("Kono ude daite omae wo nidoto hanashi wa shinai")

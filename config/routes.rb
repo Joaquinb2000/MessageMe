@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get "chatroom/(:id)", to: 'chatrooms#show'
 
+  root "sessions#new"
 
-  root "pages#home"
   get "login", to: 'sessions#new'
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :chatrooms, except: [:show]
   resources :users
-  resources :chatroom_members, except: [:index, :new, :create]
+  resources :chatroom_members, only: [:destroy]
 
   mount ActionCable.server, at: '/cable'
 end

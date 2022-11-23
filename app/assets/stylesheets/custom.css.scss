@@ -22,7 +22,11 @@
 }
 
 .msg{
-    color: grey
+    color: grey !important;
+}
+
+.tiny{
+    font-size: 0.8rem;
 }
 
 .event{
@@ -50,6 +54,17 @@
     justify-content: center !important;
 }
 
-.chatroom-options{
-    padding: 50px
+.chatroom-name{
+    transition: background-color 0.5s, color 0.2s;
+}
+
+.chatroom-name:hover{
+    color: whitesmoke;
+    background-color: #0E6EB8 !important;
+}
+
+.time-ago{
+    background: none !important;
+    box-shadow: none !important;
+    padding-bottom: 0 !important;
 }

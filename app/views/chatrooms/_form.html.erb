@@ -3,14 +3,14 @@
     <%= form_with(model: @chatroom, local: true, class: "ui form") do |f|%>
         <div class="field">
             <%= f.label :name %>
-            <div class="ui left icon input">
-                <%= f.text_field :name, placeholder: "Name the chatroom"%>
+            <div class="ui input">
+                <%= f.text_field :name, placeholder: "Name the chatroom (optional)"%>
             </div>
         </div>
         <div class="field">
-            <%= f.label :user %>
-            <div class="ui left icon input">
-                <%= f.text_field :user, value: @friend || "" %>
+            <%= f.label :username %>
+            <div class="ui input">
+                <%= f.text_field :user, value: @friend || "", placeholder: "Add a new member" %>
             </div>
         </div>
         <%= f.submit @chatroom.new_record? ? "Open chatroom" : "Edit chatroom", class:"ui blue button"%>

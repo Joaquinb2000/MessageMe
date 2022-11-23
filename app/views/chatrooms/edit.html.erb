@@ -1,0 +1,20 @@
+<div class="ui container center aligned">
+    <h1>Edit the chatroom</h1>
+    <%= link_to "Delete chatroom", chatroom_path(@chatroom), method: :delete, class: "ui red button", data: {confirm: "All messages in the chat will be permanently deleted. Are you sure?"}%>
+</div>
+
+<%= render "form"%>
+
+<div class="ui container center aligned">
+    <h2 class = "ui container">Chatroom members</h2>
+
+    <%= will_paginate @members %>
+</div>
+<div class="ui inverted segment">
+    <div class="ui middle aligned inverted divided relaxed list">
+        <%= render "members", members: @members%>
+    </div>
+</div>
+<div class="ui container center aligned">
+    <%= will_paginate @members %>
+</div>
