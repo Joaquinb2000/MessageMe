@@ -42,7 +42,6 @@ class ChatroomChannelTest < ApplicationSystemTestCase
       fill_in('Password', with: "password")
       click_on "Login"
 
-      byebug
       visit "/chatroom/#{chatroom.id}"
 
       assert_difference 'Chatroom.first.messages.count', 1 do
