@@ -6,6 +6,11 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
+
+    if ($('#user').contents().first().text().trim() != data.user)
+      data.mod_message = data.mod_message.split(" right floated").join(" ")
+      data.mod_message = data.mod_message.split("blue ").join("compact ")
+
     $('#message-display').append data.mod_message
     $('#message_body').val("")
     scroll_bottom()

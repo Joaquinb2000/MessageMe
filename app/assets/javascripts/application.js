@@ -17,13 +17,13 @@
 //= require turbolinks
 //= require_tree .
 
-scroll_bottom = function() {
+scroll_bottom = ()=>{
     if ($('#message-board').length > 0){
         $('#message-board').scrollTop($('#message-board')[0].scrollHeight)
     }
 }
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', ()=> {
     $('.ui.dropdown').dropdown();
 
     $('.message .close').on('click', function() {
