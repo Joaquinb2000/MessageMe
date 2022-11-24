@@ -43,4 +43,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  #ES6 Support for Uglifier Gem
+  config.assets.js_compressor = Uglifier.new(
+    :harmony => true
+  )
 end
