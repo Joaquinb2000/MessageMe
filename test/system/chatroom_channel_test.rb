@@ -42,7 +42,8 @@ class ChatroomChannelTest < ApplicationSystemTestCase
       fill_in('Password', with: "password")
       click_on "Login"
 
-      visit current_path.concat("/#{chatroom.id}")
+      byebug
+      visit "/chatroom/#{chatroom.id}"
 
       assert_difference 'Chatroom.first.messages.count', 1 do
         find_by_id("message_body").fill_in(with: "Kono ude daite omae wo nidoto hanashi wa shinai")
