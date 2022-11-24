@@ -28,7 +28,6 @@ class ChatroomsController < ApplicationController
   def create
     user = User.find_by(username: username_param)
     @chatroom = Chatroom.new(chatroom_params)
-    byebug
 
     if user && user != current_user && @chatroom.save()
       @chatroom.users.push(current_user, user)
