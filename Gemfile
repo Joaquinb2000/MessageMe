@@ -76,3 +76,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "ruby-lsp", "~> 0.0.4", :group => :development
+
+gem "dockerfile-rails", ">= 1.0", :group => :development

@@ -20,7 +20,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
     #ES6 Support for Uglifier Gem
@@ -99,7 +99,7 @@ Rails.application.configure do
   end
 
   #Redis config
-  config.action_cable.allowed_request_origins = ["localhost:3000", "https://messageme.onrender.com" ]
+  config.action_cable.allowed_request_origins = ["localhost:3000", "https://messageme-jb.fly.dev/" ]
 
   config.cache_store = :redis_cache_store, {  url: ENV['REDIS_URL']}
   # Do not dump schema after migrations.

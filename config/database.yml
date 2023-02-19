@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: messageme
-  username: messageme_user
+  username: postgres
   url: <%= ENV['DATABASE_URL'] %>
